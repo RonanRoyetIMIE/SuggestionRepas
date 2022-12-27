@@ -1,11 +1,15 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Ratatouille</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <h1>Bienvenue sur Ratatouille</h1>
-    <h2>{{ date|date:"d F Y H:i:s" }}</h2>
+    <div class="container">
+        <h1>Bienvenue sur Ratatouille</h1>
+        <h2>{{ date|date:"d F Y H:i:s" }}</h2>
+    </div>
 </body>
 </html>
