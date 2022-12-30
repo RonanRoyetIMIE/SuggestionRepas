@@ -13,9 +13,15 @@ from api import views
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet, 'users')
 router.register(r'register', views.RegisterViewSet, 'register')
+router.register(r'products', views.ProductsViewSet, 'products')
+
+productsByCategory = views.ProductsByCategoryViewSet.as_view({
+    'get': 'list',
+})
 
 urlpatterns = [
     path('', include(router.urls)),
     path('login/', views.LoginView.as_view()),
     path('logout/', views.LogoutView.as_view()),
+    path('productsByCategory/<str:category>/', productsByCategory, name='productsByCategory'),
 ]

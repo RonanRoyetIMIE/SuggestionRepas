@@ -1,4 +1,4 @@
-from api.models import User
+from api.models import User, Product
 from rest_framework import serializers, status
 from rest_framework.validators import UniqueValidator
 from rest_framework.response import Response
@@ -86,4 +86,16 @@ class LoginSerializer(serializers.Serializer):
         # It will be used in the view.
         attrs['user'] = user
         return attrs
-    
+
+class ProductSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product
+        fields = ['code',
+                  'brands',
+                  'keywords',
+                  'categories_tags',
+                  'countries',
+                  'image_url',
+                  'ingredients_text',
+                  'user_id',
+                  'sub_code']
